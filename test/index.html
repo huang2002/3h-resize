@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="renderer" content="webkit" />
+    <title>3h-resize test</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <div id="target"></div>
+    <div id="panel">
+
+        <p class="panel-title">Controls</p>
+
+        <p class="panel-line">
+            <label class="control-label" for="sizing-control">sizing</label>
+            <select name="sizing" id="sizing-control" class="control-input">
+                <option class="sizing-option" value="fixedWidth">fixedWidth</options>
+                <option class="sizing-option" value="fixedHeight">fixedHeight</options>
+                <option class="sizing-option" value="semifixed">semifixed</options>
+                <option class="sizing-option" value="contain">contain</options>
+                <option class="sizing-option" value="fill">fill</options>
+                <option class="sizing-option" value="center" selected>center</options>
+            </select>
+        </p>
+        <p class="panel-line">
+            <label class="control-label" for="padding-top">paddingTop</label>
+            <input id="padding-top" class="control-input" type="number" name="padding-top" />
+        </p>
+        <p class="panel-line">
+            <label class="control-label" for="padding-right">paddingRight</label>
+            <input id="padding-right" class="control-input" type="number" name="padding-right" />
+        </p>
+        <p class="panel-line">
+            <label class="control-label" for="padding-bottom">paddingBottom</label>
+            <input id="padding-bottom" class="control-input" type="number" name="padding-bottom" />
+        </p>
+        <p class="panel-line">
+            <label class="control-label" for="padding-left">paddingLeft</label>
+            <input id="padding-left" class="control-input" type="number" name="padding-left" />
+        </p>
+
+        <hr style="margin: 0.8em 0 0.5em;" />
+
+        <p class="panel-title">Resizer Info</p>
+
+        <p class="panel-line">
+            <span class="info-label">width</span>
+            <span id="info-width">??</span>
+        </p>
+        <p class="panel-line">
+            <span class="info-label">height</span>
+            <span id="info-height">??</span>
+        </p>
+        <p class="panel-line">
+            <span class="info-label">left</span>
+            <span id="info-left">??</span>
+        </p>
+        <p class="panel-line">
+            <span class="info-label">top</span>
+            <span id="info-top">??</span>
+        </p>
+        <p class="panel-line">
+            <span class="info-label">scale</span>
+            <span id="info-scale">??</span>
+        </p>
+
+    </div>
+    <script src="../dist/3h-resize.umd.js" defer></script>
+    <script src="./index.js" defer></script>
+</body>
+
+</html>

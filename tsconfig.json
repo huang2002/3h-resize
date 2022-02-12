@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "declaration": true,
+        "declarationDir": "./types",
+        "outDir": "./js",
+        "rootDir": "./src",
+        "paths": {
+            "3h-utils": [
+                "./node_modules/3h-utils/index.d.ts"
+            ]
+        },
+        "strict": true,
+        "noUnusedLocals": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+    "include": [
+        "src"
+    ]
+}
