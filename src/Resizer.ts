@@ -79,31 +79,31 @@ export class Resizer {
     /**
      * Constructor of {@link Resizer}.
      */
-    constructor(options: ResizerOptions) {
+    constructor(options?: ResizerOptions) {
 
-        const { target = null } = options;
+        const target = options?.target || null;
         this.target = target;
 
-        this.container = options.container ?? (target && target.parentElement);
+        this.container = options?.container ?? (target && target.parentElement);
 
-        const defaultPadding = options.padding ?? 0;
-        this.paddingTop = options.paddingTop ?? defaultPadding;
-        this.paddingRight = options.paddingRight ?? defaultPadding;
-        this.paddingBottom = options.paddingBottom ?? defaultPadding;
-        this.paddingLeft = options.paddingLeft ?? defaultPadding;
+        const defaultPadding = options?.padding ?? 0;
+        this.paddingTop = options?.paddingTop ?? defaultPadding;
+        this.paddingRight = options?.paddingRight ?? defaultPadding;
+        this.paddingBottom = options?.paddingBottom ?? defaultPadding;
+        this.paddingLeft = options?.paddingLeft ?? defaultPadding;
 
-        this.active = options.active ?? true;
-        this.width = options.width ?? 0;
-        this.height = options.height ?? 0;
-        this.sizing = options.sizing ?? Sizing.center;
-        this.callback = options.callback || null;
+        this.active = options?.active ?? true;
+        this.width = options?.width ?? 0;
+        this.height = options?.height ?? 0;
+        this.sizing = options?.sizing ?? Sizing.center;
+        this.callback = options?.callback || null;
 
         this.updateSync = this.updateSync.bind(this);
 
         const update = debounce(100, this.updateSync);
         this.update = update;
 
-        if (options.autoResize !== false) {
+        if (options?.autoResize !== false) {
             window.addEventListener('resize', update);
             window.addEventListener('orientationchange', update);
         }
