@@ -78,75 +78,76 @@ export declare namespace Sizing {
 
 export declare type ResizeCallback = (result: SizingOutput) => void;
 
-export interface ResizerOptions {
+export declare type ResizerOptions = Partial<{
     /**
      * Whether the resizer is active.
      * (If this is `true`, `update` will be
      * automatically invoked in constructor.)
      * @default true
      */
-    active?: boolean;
+    active: boolean;
     /**
      * The target element.
+     * @default null
      */
-    target: HTMLElement;
+    target: HTMLElement | null;
     /**
      * The container element.
-     * @default target.parentElement
+     * @default target && target.parentElement
      */
-    container?: HTMLElement;
+    container: HTMLElement | null;
     /**
      * The desired width of the target.
      * @default 0
      */
-    width?: number;
+    width: number;
     /**
      * The desired height of the target.
      * @default 0
      */
-    height?: number;
+    height: number;
     /**
      * The sizing handler.
      * @default Sizing.center
      */
-    sizing?: SizingHandler;
+    sizing: SizingHandler;
     /**
      * The top padding of the container.
      * @default options.padding
      */
-    paddingTop?: number;
+    paddingTop: number;
     /**
      * The right padding of the container.
      * @default options.padding
      */
-    paddingRight?: number;
+    paddingRight: number;
     /**
      * The bottom padding of the container.
      * @default options.padding
      */
-    paddingBottom?: number;
+    paddingBottom: number;
     /**
      * The left padding of the container.
      * @default options.padding
      */
-    paddingLeft?: number;
+    paddingLeft: number;
     /**
      * The default value of `padding*`.
      * @default 0
      */
-    padding?: number;
+    padding: number;
     /**
      * The callback that should be invoked on resize.
      * @default null
      */
-    callback?: ResizeCallback | null;
+    callback: ResizeCallback | null;
     /**
      * Whether to invoke `update` on resize events.
      * (Refers to `resize` and `orientationchange` events on `window`.)
      * @default true
      */
-    autoResize?: boolean;
-}
+    autoResize: boolean;
+}>;
 
 export declare class Resizer {
     /**
@@ -162,13 +163,14 @@ export declare class Resizer {
     active: boolean;
     /**
      * The target element.
+     * @default null
      */
-    target: HTMLElement;
+    target: HTMLElement | null;
     /**
      * The container element.
-     * @default target.parentElement
+     * @default target && target.parentElement
      */
-    container: HTMLElement;
+    container: HTMLElement | null;
     /**
      * The desired width of the target.
      * @default 0
