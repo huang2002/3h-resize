@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+- Make Resizer argument optional
+
 ## 0.2.0
 
 - Make Resizer options optional

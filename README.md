@@ -153,7 +153,7 @@ export declare class Resizer {
     /**
      * Constructor of {@link Resizer}.
      */
-    constructor(options: ResizerOptions);
+    constructor(options?: ResizerOptions);
     /**
      * Whether the resizer is active.
      * (If this is `true`, `update` will be
