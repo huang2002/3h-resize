@@ -214,11 +214,16 @@ export declare class Resizer {
     /**
      * Resize the target synchronously.
      */
-    updateSync(): void;
+    updateSync(callback?: ResizeCallback): void;
     /**
      * Update the target asynchronously.
      * (Debounced; Default timeout: 100ms.)
      */
-    update: DebounceWrapper<() => void>;
+    update: DebounceWrapper<(callback?: ResizeCallback) => void>;
+    /**
+     * The event listener that invokes `update`.
+     * (bound to this)
+     */
+    onResize(): void;
 }
 ```

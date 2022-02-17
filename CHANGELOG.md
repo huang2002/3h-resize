@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+
+- Add one-time callback to `resizer.update` & `resizer.updateSync`
+- Add `resizer.onResize`
+
 ## 0.3.0
 
 - Make Resizer argument optional
