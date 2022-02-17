@@ -47,31 +47,37 @@ const resizer = new HR.Resizer({
     },
 });
 
+const updateResizer = () => {
+    resizer.update(result => {
+        console.log('resized', result);
+    });
+};
+
 sizingControl.addEventListener('change', () => {
     resizer.sizing = HR.Sizing[sizingControl.value];
-    resizer.update();
+    updateResizer();
 });
 
 paddingTop.value = resizer.paddingTop + '';
 paddingTop.addEventListener('input', () => {
     resizer.paddingTop = +paddingTop.value;
-    resizer.update();
+    updateResizer();
 });
 
 paddingRight.value = resizer.paddingRight + '';
 paddingRight.addEventListener('input', () => {
     resizer.paddingRight = +paddingRight.value;
-    resizer.update();
+    updateResizer();
 });
 
 paddingBottom.value = resizer.paddingBottom + '';
 paddingBottom.addEventListener('input', () => {
     resizer.paddingBottom = +paddingBottom.value;
-    resizer.update();
+    updateResizer();
 });
 
 paddingLeft.value = resizer.paddingLeft + '';
 paddingLeft.addEventListener('input', () => {
     resizer.paddingLeft = +paddingLeft.value;
-    resizer.update();
+    updateResizer();
 });

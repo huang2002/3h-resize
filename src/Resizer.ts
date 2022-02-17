@@ -99,17 +99,17 @@ export class Resizer {
         this.callback = options?.callback || null;
 
         this.updateSync = this.updateSync.bind(this);
+        this.onResize = this.onResize.bind(this);
 
-        const update = debounce(100, this.updateSync);
-        this.update = update;
+        this.update = debounce(100, this.updateSync);
 
         if (options?.autoResize !== false) {
-            window.addEventListener('resize', update);
-            window.addEventListener('orientationchange', update);
+            window.addEventListener('resize', this.onResize);
+            window.addEventListener('orientationchange', this.onResize);
         }
 
         if (this.active) {
-            update();
+            this.update();
         }
 
     }
@@ -185,7 +185,7 @@ export class Resizer {
     /**
      * Resize the target synchronously.
      */
-    updateSync() {
+    updateSync(callback?: ResizeCallback) {
 
         const { target, container } = this;
 
@@ -213,6 +213,7 @@ export class Resizer {
         targetStyle.marginTop = `${result.top}px`;
 
         this.callback?.(result);
+        callback?.(result);
 
     }
 
@@ -220,6 +221,14 @@ export class Resizer {
      * Update the target asynchronously.
      * (Debounced; Default timeout: 100ms.)
      */
-    update: DebounceWrapper<() => void>;
+    update: DebounceWrapper<(callback?: ResizeCallback) => void>;
+
+    /**
+     * The event listener that invokes `update`.
+     * (bound to this)
+     */
+    onResize() {
+        this.update();
+    }
 
 }
